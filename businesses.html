@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local Businesses — Saathi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="mark">S</span> Saathi</a>
+    <ul class="navlinks">
+      <li><a href="index.html">About</a></li>
+      <li><a href="businesses.html" class="active">Local Businesses</a></li>
+      <li><a href="ngos.html">NGO Directory</a></li>
+    </ul>
+    <div class="navactions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<section style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Local businesses & neighborhoods</h2>
+      <p>Eight community businesses across Mumbai neighborhoods. Browse the map, filter by category or support type, and open a card to see how to help.</p>
+    </div>
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search by name or neighborhood…">
+      <select id="categoryFilter">
+        <option value="">All categories</option>
+      </select>
+      <select id="supportFilter">
+        <option value="">Any support type</option>
+        <option value="Buy">Buy</option>
+        <option value="Volunteer">Volunteer</option>
+        <option value="Donate">Donate</option>
+        <option value="Skill-share">Skill-share</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap split-view">
+    <div id="map"></div>
+    <div class="card-grid" id="cardGrid"></div>
+  </div>
+</section>
+
+<div class="detail-panel" id="detailPanel">
+  <div class="detail-card" id="detailCard"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Saathi — a student project for SDG 1: No Poverty.</p>
+    <p><a href="index.html">Back to About</a></p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/main.js"></script>
+<script src="js/businesses.js"></script>
+</body>
+</html>

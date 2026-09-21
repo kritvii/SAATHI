@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Akanksha Foundation",
+    "causeArea": "Education & Poverty Alleviation",
+    "location": "Mumbai (multiple centers)",
+    "mission": "Works to transform the lives of children from low-income communities through quality education.",
+    "contact": { "email": "info@akanksha.org", "phone": "+91 22 6620 8800", "website": "https://www.akanksha.org" },
+    "getInvolvedOptions": ["Volunteer", "Donate", "Partner"]
+  },
+  {
+    "id": 2,
+    "name": "SNEHA (Society for Nutrition, Education and Health Action)",
+    "causeArea": "Health & Livelihood",
+    "location": "Mumbai — Dharavi, Govandi, Kurla",
+    "mission": "Improves health and nutrition outcomes for women and children in urban slum communities.",
+    "contact": { "email": "admin@snehamumbai.org", "phone": "+91 22 2645 5473", "website": "https://snehamumbai.org" },
+    "getInvolvedOptions": ["Volunteer", "Donate"]
+  },
+  {
+    "id": 3,
+    "name": "Magic Bus India Foundation",
+    "causeArea": "Livelihood & Youth Employment",
+    "location": "Mumbai & Pan-India",
+    "mission": "Guides children and young people out of poverty through structured livelihood and life-skills programs.",
+    "contact": { "email": "contact@magicbus.org", "phone": "+91 22 6155 4747", "website": "https://www.magicbus.org" },
+    "getInvolvedOptions": ["Volunteer", "Donate", "Partner"]
+  },
+  {
+    "id": 4,
+    "name": "Goonj",
+    "causeArea": "Basic Needs & Disaster Relief",
+    "location": "Mumbai chapter (HQ Delhi)",
+    "mission": "Converts urban surplus material — clothing, household goods — into resources for rural and low-income communities.",
+    "contact": { "email": "goonj@goonj.org", "phone": "+91 11 2686 5162", "website": "https://goonj.org" },
+    "getInvolvedOptions": ["Donate", "Volunteer"]
+  },
+  {
+    "id": 5,
+    "name": "YUVA (Youth for Unity and Voluntary Action)",
+    "causeArea": "Housing & Urban Poverty",
+    "location": "Mumbai — informal settlements",
+    "mission": "Organizes slum and pavement-dwelling communities to secure housing rights and basic services.",
+    "contact": { "email": "yuva@yuvaindia.org", "phone": "+91 22 2493 1620", "website": "https://www.yuvaindia.org" },
+    "getInvolvedOptions": ["Volunteer", "Partner"]
+  },
+  {
+    "id": 6,
+    "name": "Doorstep School",
+    "causeArea": "Education & Poverty Alleviation",
+    "location": "Mumbai & Pune",
+    "mission": "Brings education to children at construction sites, railway platforms, and slum communities who cannot access formal school.",
+    "contact": { "email": "info@doorstepschool.org", "phone": "+91 22 2444 7920", "website": "https://doorstepschool.org" },
+    "getInvolvedOptions": ["Volunteer", "Donate"]
+  }
+]

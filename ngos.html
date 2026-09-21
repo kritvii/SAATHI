@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NGO Directory — Saathi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="mark">S</span> Saathi</a>
+    <ul class="navlinks">
+      <li><a href="index.html">About</a></li>
+      <li><a href="businesses.html">Local Businesses</a></li>
+      <li><a href="ngos.html" class="active">NGO Directory</a></li>
+    </ul>
+    <div class="navactions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<section style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Not sure where to start? Get matched.</h2>
+      <p>Answer three quick questions and we'll point you to an NGO working on what you care about.</p>
+    </div>
+    <div class="wizard" id="wizard"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Full NGO directory</h2>
+      <p>Verified organizations working on poverty alleviation across Mumbai.</p>
+    </div>
+    <div class="filters">
+      <input type="text" id="ngoSearch" placeholder="Search by name or location…">
+      <select id="causeFilter">
+        <option value="">All cause areas</option>
+      </select>
+    </div>
+    <div class="card-grid" id="ngoGrid" style="grid-template-columns: repeat(2, 1fr); max-height:none;"></div>
+  </div>
+</section>
+
+<div class="detail-panel" id="detailPanel">
+  <div class="detail-card" id="detailCard"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Saathi — a student project for SDG 1: No Poverty.</p>
+    <p><a href="index.html">Back to About</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/ngos.js"></script>
+</body>
+</html>

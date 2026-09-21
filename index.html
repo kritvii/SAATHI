@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saathi — SDG 1: No Poverty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="mark">S</span> Saathi</a>
+    <ul class="navlinks">
+      <li><a href="index.html" class="active">About</a></li>
+      <li><a href="businesses.html">Local Businesses</a></li>
+      <li><a href="ngos.html">NGO Directory</a></li>
+    </ul>
+    <div class="navactions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Poverty isn't a statistic.<br>It's a neighbor's story.</h1>
+      <p class="lede">Saathi connects Mumbai's low-income businesses, artisans and service workers with people who want to buy, volunteer or give — turning SDG 1: No Poverty into something you can act on this week.</p>
+      <div class="hero-cta">
+        <a href="businesses.html" class="btn btn-primary">Explore local businesses</a>
+        <a href="ngos.html" class="btn btn-ghost">Find an NGO</a>
+      </div>
+    </div>
+    <div class="stat-counter">
+      <div class="num"><span data-target="712">0</span>M</div>
+      <div class="label">people worldwide still live in extreme poverty (below $2.15/day)</div>
+      <div class="stat-grid">
+        <div>
+          <div class="num" style="font-size:1.5rem;"><span data-target="129">0</span>M</div>
+          <div class="label" style="font-size:0.82rem;">children affected globally</div>
+        </div>
+        <div>
+          <div class="num" style="font-size:1.5rem;"><span data-target="8">0</span> of 8</div>
+          <div class="label" style="font-size:0.82rem;">businesses on Saathi are led by women</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How the world has moved on poverty</h2>
+      <p>A short timeline of milestones behind SDG 1 — and how far there still is to go.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1990</div>
+        <h3>1.9 billion in extreme poverty</h3>
+        <p>Nearly 36% of the world's population lived below the extreme poverty line.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2015</div>
+        <h3>UN adopts the SDGs</h3>
+        <p>193 countries commit to 17 Sustainable Development Goals, with SDG 1 aiming to end poverty in all forms by 2030.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2020</div>
+        <h3>First rise in decades</h3>
+        <p>The pandemic pushed extreme poverty up for the first time in over 20 years, adding roughly 70 million people.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2026</div>
+        <h3>Local action, global goal</h3>
+        <p>Platforms like Saathi aim to close the last mile — connecting individual support directly to people who need it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper-raised); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Myth vs. fact</h2>
+      <p>Click a card to flip it.</p>
+    </div>
+    <div class="flip-grid">
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <div class="tag">MYTH</div>
+            <p>Poor people are poor because they don't work hard enough.</p>
+            <div class="flip-hint">Click to flip →</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="tag">FACT</div>
+            <p>Most people in poverty work long, physically demanding hours — often in informal jobs with no security, benefits, or fair pay.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <div class="tag">MYTH</div>
+            <p>Poverty is only about not having enough money.</p>
+            <div class="flip-hint">Click to flip →</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="tag">FACT</div>
+            <p>Poverty is multidimensional — it also means limited access to healthcare, education, clean water and safe housing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <div class="tag">MYTH</div>
+            <p>Small individual purchases don't make a real difference.</p>
+            <div class="flip-hint">Click to flip →</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="tag">FACT</div>
+            <p>For a small local business, even one consistent customer can be the difference between staying open and shutting down.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Test your knowledge</h2>
+      <p>Three quick questions on global poverty.</p>
+    </div>
+    <div class="quiz-card" id="quizCard"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Saathi — a student project for SDG 1: No Poverty.</p>
+    <p>Built with HTML, CSS & JavaScript.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
