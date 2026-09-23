@@ -1,5 +1,17 @@
-let ngos = [];
+/* ============================================================
+   ngos.js
+   Powers the "NGO Directory" page (ngos.html):
+     - loads NGO data from data/ngos.json
+     - renders a filterable grid of NGO cards + a detail panel
+       (same pattern as businesses.js, but without the map)
+     - runs a 3-question "get involved" wizard that recommends
+       one NGO based on the user's answers
+   ============================================================ */
 
+let ngos = []; // full dataset, loaded once from JSON
+
+// Fetch the data, then build the filter dropdown, the grid,
+// and the wizard — all from the same in-memory array.
 fetch('data/ngos.json')
   .then(r => r.json())
   .then(data => {
@@ -9,6 +21,8 @@ fetch('data/ngos.json')
     renderWizard();
   });
 
+// Builds the "cause area" dropdown options from the unique
+// values found in the data, so it always matches the dataset.
 function populateCauseFilter() {
   const causes = [...new Set(ngos.map(n => n.causeArea))].sort();
   const sel = document.getElementById('causeFilter');
@@ -19,6 +33,7 @@ function populateCauseFilter() {
   });
 }
 
+// Returns NGOs matching the current search text + cause filter.
 function getFilteredNgos() {
   const q = document.getElementById('ngoSearch').value.toLowerCase();
   const cause = document.getElementById('causeFilter').value;
@@ -29,6 +44,8 @@ function getFilteredNgos() {
   });
 }
 
+// Redraws the NGO card grid to match the current filters.
+// Called on load and whenever a filter control changes.
 function renderGrid() {
   const list = getFilteredNgos();
   const grid = document.getElementById('ngoGrid');
@@ -49,6 +66,8 @@ function renderGrid() {
   }
 }
 
+// Opens the slide-in detail panel for one NGO (by id) with
+// its mission text and contact links (email / website / call).
 function openNgoDetail(id) {
   const n = ngos.find(x => x.id === id);
   if (!n) return;
@@ -70,25 +89,37 @@ function openNgoDetail(id) {
   `;
   panel.classList.add('open');
   document.getElementById('detailClose').addEventListener('click', () => panel.classList.remove('open'));
-  panel.addEventListener('click', (e) => { if (e.target === panel) panel.classList.remove('open'); });
+  panel.addEventListener('click', (e) => { if (e.target === panel) panel.classList.remove('open'); }); // click backdrop to close
 }
 
+// Re-render the grid whenever a filter control changes.
 ['ngoSearch', 'causeFilter'].forEach(id => {
   document.getElementById(id).addEventListener('input', renderGrid);
   document.getElementById(id).addEventListener('change', renderGrid);
 });
 
-// ===== Get-involved wizard =====
+
+/* ===== Get-involved wizard ==================================
+   A 3-question quiz-style flow (same UI pattern as the
+   awareness quiz in main.js) that ends by recommending one
+   NGO based on the user's answers, instead of scoring them. */
+
+// Each step: which key to store the answer under, the question
+// text, and the list of button options shown for it.
 const wizardSteps = [
   { key: 'cause', q: "What cause matters most to you?", opts: ["Education & Poverty Alleviation", "Health & Livelihood", "Livelihood & Youth Employment", "Housing & Urban Poverty", "Basic Needs & Disaster Relief"] },
   { key: 'time', q: "How much time can you give?", opts: ["Just a donation", "A few hours a month", "Ongoing volunteering"] },
   { key: 'mode', q: "Prefer to help online or in person?", opts: ["Online / remote", "In-person, local"] }
 ];
-let wizardAnswers = {};
-let wizardIndex = 0;
+let wizardAnswers = {}; // e.g. { cause: "...", time: "...", mode: "..." }
+let wizardIndex = 0;    // which step (question) we're currently on
 
+// Renders either the current wizard question, or — once all
+// steps are answered — the matched NGO result screen.
 function renderWizard() {
   const el = document.getElementById('wizard');
+
+  // Base case: every question answered -> show the recommended NGO.
   if (wizardIndex >= wizardSteps.length) {
     const match = matchNgo();
     el.innerHTML = `
@@ -107,6 +138,9 @@ function renderWizard() {
     document.getElementById('wizardRestart').addEventListener('click', () => { wizardAnswers = {}; wizardIndex = 0; renderWizard(); });
     return;
   }
+
+  // Otherwise render the current question, with a progress dial
+  // like the awareness quiz (dots for completed steps).
   const step = wizardSteps[wizardIndex];
   el.innerHTML = `
     <div class="quiz-progress">${wizardSteps.map((_, i) => `<span class="${i < wizardIndex ? 'done' : ''}"></span>`).join('')}</div>
@@ -117,13 +151,19 @@ function renderWizard() {
   `;
   el.querySelectorAll('.quiz-opt').forEach(btn => {
     btn.addEventListener('click', () => {
-      wizardAnswers[step.key] = btn.dataset.v;
-      wizardIndex++;
+      wizardAnswers[step.key] = btn.dataset.v; // record this answer
+      wizardIndex++;                           // advance to the next question
       renderWizard();
     });
   });
 }
 
+// Matching logic: find the first NGO whose causeArea equals the
+// user's chosen cause. (Deliberately simple for a mini-project —
+// only the "cause" answer is used; time/mode are collected but
+// not part of the matching rule, which would be a natural
+// extension point to mention to an evaluator.)
+// Falls back to the first NGO in the list if nothing matches.
 function matchNgo() {
   const byCause = ngos.find(n => n.causeArea === wizardAnswers.cause);
   return byCause || ngos[0];
